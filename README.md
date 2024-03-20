@@ -32,7 +32,7 @@
 
 * Python 中<font color='red'>單雙引號沒有差異，但不能混用</font>
 * 註解有三種形式
-    ```python=
+    ```python
     """
     註解一 (多行)
     """
@@ -55,7 +55,7 @@
 在 C/C++ 中，使用 `{}` 表示區塊 (block) ，而在 python 裡，用**冒號**表示開始一個新的區段。 `if` 、 `else` 、 `for` 、 `while` 等 function 後，都需要加**冒號，切記區段都要內縮!!!**
 :::
 
-```cpp=
+```python
 int g = 50;
 if (g >= 60){
     cout << "pass";
@@ -72,7 +72,7 @@ else{
 
 * Python 中的 else if 表示為 `elif`
 
-```python=
+```python
 g = 50
 if (g >= 60):
     print ("pass")
@@ -98,7 +98,7 @@ for i in range(起始=0, 終止, 間隔=1)
 
 並且是<font color='red'>包含起始值，但不包含終止值</font>
 
-```python=
+```python
 for x in range(4):
     print(x, end='')
 >>> 0123    # 包含起始 0 ，不包含終止值
@@ -134,7 +134,7 @@ match num:
 
 當 try 區段內的程式發生錯誤時，就會執行 except 裡的內容，如果 try 的程式沒有錯誤，就不會執行 except 的內容
 
-```python=
+```python
 try:                      # 使用 try，測試內容是否正確
     a = input('輸入數字：')
     print(a + 1)
@@ -160,7 +160,7 @@ except:                   # 如果 try 的內容發生錯誤，就執行 except 
 * 修改 :o:
 * 查詢 :o:
 
-```python=
+```python
 ## 可全部一樣 type
 students = ['bee', 'obito']
 student[-1] # -1 代表最後一個
@@ -198,7 +198,7 @@ Tuple 跟 List 很像，但它的==資料是不能修改的==，Tuple比較**省
 `Tuple` 被宣告完成以後，它是不能新增、刪除、修改元素的。
 :::
 
-```python=
+```python
 list_ex = [11, '阿我就爛阿', 87]     ## list
 tuple_ex = (11, '阿我就爛阿', 87)    ## tuple
 tuple_ex1 = tuple([123, 456, 789])  ## 可以由 List 中建立
@@ -216,7 +216,7 @@ tuple_ex.append(66)      ## ERROR !!!
 * 修改 :x:
 * 查詢 :o:
 
-```python=
+```python
 # create a set
 temp = set()    ## a empty set
 temp = {"BEE", "Alan", "Buck"}
@@ -246,7 +246,7 @@ Dictionary 表達方式跟 set 一樣，都是由大括號所構成，實際上 
 2. Key 的值必須是唯一；可以透過 Key 來檢索取得 Value
 3. 形式 { Key:Value }
 
-```python=
+```python
 # create an empty dictionart
 empty_dict = {}
 empty_dict = dict()
@@ -276,7 +276,7 @@ def 後方通常會放上函式名稱、輸入參數的小括號，且一樣要�
 
 * 需注意名稱不能和變數名稱**重複**
 
-```python=
+```python
 def calaulate(x=3): # can give default value
     result = 0
     while result < 10:
@@ -295,7 +295,7 @@ print(ans2)   # 12
 
 * 函數可回傳多個結果
 * 可設定函式中的函式
-    ```python=
+    ```python
     def hello(n, msg):
         def h1():       # 內部函式
             return msg
@@ -328,7 +328,7 @@ print(ans2)   # 12
 * 建立 Class 的方式類似建立一個 function，使用 `class` 開頭。
 * 必須帶有 `self` 參數，代表透過 Class 建立的 Object
 
-```python=
+```python
 class human():
     def __init__(self, age, weight):   
         self.eye = 2
@@ -353,7 +353,7 @@ oxxo.say('hello')               # oxxo say: hello
 * 繼承表示可以用既有的 Class 去建立一個新的 Class，並加入一些新的東西或修改新的 Class
 * 直接用 Class 包住預繼承的 Class
 
-```python=
+```python
 class father():         # fatehr Class
     def __init__(self):
         self.eye = 2
@@ -377,7 +377,7 @@ oxxo.language()             # 印出 chinese
 * private 方法建立 : `__` (雙底線)+ 命名名稱
 * Python 默認 Class 所有 element 都是 Public，除了加了雙底線的 private 
 
-```python=
+```python
 class grandpa():
     def __init__(self):    # init 不為 private !
         self.mouth = 1
@@ -416,7 +416,7 @@ from matplotlib import pyplot as plt
 ### Q1. Python is Pass by assignment
 
 * C++ Pass by Value 是傳給 function 時，複製一份引數 (number) 給函式使用，修改也是修改複製的值
-```cpp=
+```cpp
 #include <stdio.h>
 int main()
 {
@@ -438,7 +438,7 @@ void setNum(int num2)
 
 
 * C++ Pass by Reference 傳給 Function 的是 address ，所以裡外等同於是一個 variable。修改會動到原本的值
-```Cpp=
+```Cpp
 #include <stdio.h>
 int main()
 {
@@ -460,7 +460,7 @@ void setNum(int &num2)
 * 在 Python 中是一種 Pass by Assignment，Python 傳遞給 function 等都是傳 Object Reference，故它 <font color='red'>需要判斷該物件是不是 Mutable 或是 Imutable 的。</font>
 * 才會知道是否會修改到 Variable 本身
 * ImMutable example :
-    ```python=
+    ```python
     number = 7
     def function_1(num):
         print("Before function start, num is", num)
@@ -478,7 +478,7 @@ void setNum(int &num2)
     After function ends, num is 7
     ```
 * Mutable example : 
-    ```python=
+    ```python
     object ={
         'name': 'Leo',
         'age' : 25
@@ -511,7 +511,7 @@ void setNum(int &num2)
 * 但 Python 的 Variable 更像是 ，指向 Object 的 Address
 * 某種程度上很像 pointer，<font color='red'>尤其對於 Mutable 的 variable</font>
 
-```python=
+```python
 a = [1, 2, 3]
 b = a
 b.append(4) 
@@ -523,7 +523,7 @@ print(id(b))
 >>> 137911959091520
 ```
 * ImMutable 的 variable 則不會，因為在執行 `b=b-1` 時，發現是 ImMutable variable，則會在記憶體創建新的位置給 `b`
-```python=
+```python
 a = 3
 b = a
 b = b - 1 
@@ -538,7 +538,7 @@ print(id(b))
 ```
 
 * 思考範例，`=` 是宣告
-```python=
+```python
 a = []
 b = a
 b.append(2)
