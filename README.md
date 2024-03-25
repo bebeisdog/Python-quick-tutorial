@@ -1,7 +1,5 @@
 # Python 簡介 (WNC)
 
-[TOC]
-
 ---
 
 與編譯語言(例如 C、C++、C# )不同的是，直譯語言利用直譯器 interpretor 將程式碼一行一行解析與執行。
@@ -16,11 +14,16 @@
 ## Variable 宣告
 
 * 在 Python 中不須特別指名型態，但每個 variable 是有型態的 ( type )
-    * EX : C++ 中的 int x = 0 ， 在 python 裡只寫 x = 0 ，系統會自動設成 int 形式的物件
+    * EX : C++ 中的 int x = 0 ， 在 Python 裡只寫 `x = 0` ，系統會自動設成 int 形式的物件。
+    * `x = 0.0`，系統會設定為 float 形式的物件。
 * <font color='red'>`=` 就是宣告</font>，EX: `a = 1`
     1. 把 1 放入 Object container 
     2. 指定 Object 名稱是 a
-    3. `print(a)` 為指出 a 的物件內容
+    3. `print(a)` 為指出 a 的物件內容 
+    
+    ![image](https://hackmd.io/_uploads/rJO9oLCCT.png)
+
+
 
 ### Operators
 
@@ -34,14 +37,14 @@
 * 註解有三種形式
     ```python
     """
-    註解一 (多行)
+    註解一 (多行註解)
     """
 
     '''
-    註解一 (多行)
+    註解一 (多行註解)
     '''
 
-    # 註解三 (單行)
+    # 註解三 (單行註解)
     ```
 
 ---
@@ -56,6 +59,7 @@
 :::
 
 ```python
+% C++ Format
 int g = 50;
 if (g >= 60){
     cout << "pass";
@@ -73,6 +77,7 @@ else{
 * Python 中的 else if 表示為 `elif`
 
 ```python
+# Python Format
 g = 50
 if (g >= 60):
     print ("pass")
@@ -140,7 +145,7 @@ try:                      # 使用 try，測試內容是否正確
     print(a + 1)
 except:                   # 如果 try 的內容發生錯誤，就執行 except 裡的內容
     print('發生錯誤')
-    pass                  # 不想執行任何動作，可使用 pass 語法掠過
+    pass                  # 不想執行任何動作，可使用 pass 語法略過
 ```
 
 ---
@@ -209,7 +214,7 @@ tuple_ex.append(66)      ## ERROR !!!
 
 ### Set
 
-`Set` 就是數學上的集合，裡面的 elemant <font color='red'>**不能重複，也沒有順序性**</font>，也因為他沒有順序性，所以我們沒有辦法取得它的 index 值，它的優點就是能讓我們做集合的運算 (&、|)。
+`Set` 就是數學上的集合，裡面的 elemant <font color='red'>**不能重複，也沒有順序性**</font>，也因為他沒有順序性，所以我們沒有辦法取得它的 index 值，它的優點就是能讓我們做數學集合的運算 (&、|)。
 
 * 新增 :o: 
 * 刪除 :o:
@@ -252,7 +257,7 @@ empty_dict = {}
 empty_dict = dict()
 
 # create a dictionary
-## {key:value, key2:value2, .....}，下述這兩個創建方式(7、8行)是一樣的
+## {key:value, key2:value2, .....}，下述這兩個創建方式是一樣的
 oil = {'B':'BEE', 'C':'Cat', 66:'live'}   
 oil = dict(B = 'BEE', C = 'Cat', 66 = 'live')
 >>> {'B': 'BEE', 'C': 'Cat', 66: 'live'}
@@ -267,6 +272,10 @@ grade = {['history']:0, 'math':100}   ## ERROR
 ```
 
 * 何謂 Immutable (不可變) 和 Mutable (可變) 物件? -> [REF Link](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747)
+
+---
+
+> **順序性**指 Container 每個元素都有一個特定的位置或 Index，可以通過 Index 來訪問元素
 
 ---
 
@@ -402,6 +411,7 @@ oxxo.__money()          # 發生錯誤  'father' object has no attribute '_money
 ## 引入 Module
 
 * use `import`，可以引用其他 Module 的程式碼，包含自身建立的`.py`檔案內的 Module
+* 類似 C++ 的 `#include<>`
 * import 模組名稱、import 模組 as 命名
 * from 模組名稱 import 方法
 
@@ -549,52 +559,51 @@ print(b)
 ```
 
 
-### Q3. Linked-List 差異
 
-* C++ 允許直接訪問 Address 的靜態類型語言，可以直接操作節點的内存地址，使用指针来連接各個節點
-* Python 是動態類型的語言，沒有直接操控 Pointer 的能力，但可透過宣告來連結對象
-
-1. Node 建立
-    * C++
-        ```c++
-        struct Node {
-            int data;
-            Node* next;
-            Node(int data) : data(data), next(nullptr) {}
-        };
-        ```
-    * Python
-        ```python
-        class Node:
-            def __init__(self, data):
-                self.data = data
-                self.next = None
-        ```
-2. 訪問下一個 Node
-    * C++  ```head->next```
-    * Python ```head.next```
-
----
 
 ## After Class questions
 
 * 在 Python 的檔案中，我們需要透過縮排來區分 code block，可以透過 tab 或是 space 來達成目的，但是在同一個檔案，他們不能混用嗎?
-A: <font color='red'>在同一份檔案中</font>，`tab`、`space`不能混著用，但如果 `import` 的檔案都是用 space，你自己撰寫的檔案可以都用 tab，這樣是可以的
+
+>  <font color='red'>在同一份檔案中</font> `tab`、`space`不能混著用，
+```
+ A:  但如果 `import` 的檔案都是用 space，你自己撰寫的檔案可以都用 tab，這樣是可以的
+```
+   
+    
 ---
 * Class 內部可以再包含 Class 嗎?
-A: 可以，[Ref](https://www.geeksforgeeks.org/inner-class-in-python/)
+
+```
+ A: 可以
+```
+[Ref](https://www.geeksforgeeks.org/inner-class-in-python/)   
+   
 ---
 * import 模組，是指引入一個檔案，還是特定的 function，還是多個檔案
-A: 使用 import 關鍵字時，你可以導入一個檔案（模塊）、檔案中的特定函數或類，或者檔案中定義的所有內容。
-Bouns: Python會編譯該模組的整個代碼（轉換為字節碼），而不是只編譯用到的部分。不過，這個編譯過程只在模組第一次導入時發生，之後如果再次導入相同的模組，Python會使用已經編譯好的字節碼，除非模組的源代碼被修改過。<font color='red'>這也是`Python`使用`.pyc`文件來存儲編譯後的字節碼，以提高未來加載速度的原因。</font>
+
+```
+ A: 使用 import 關鍵字時，可以導入一個檔案（或稱 Module）、檔案中的特定函數或類
+ 或者檔案中定義的所有內容。  
+```
+
+```
+Bouns: Python會編譯該模組的整個 Code，而不是只編譯用到的部分
+不過，這個編譯過程只在模組第一次導入時發生，之後如果再次導入相同的模組，
+Python 會使用已經編譯好的字節碼，除非模組的源代碼被修改過。
+```
+<font color='red'>這也是`Python`使用`.pyc`文件來存儲編譯後的字節碼，以提高未來加載速度的原因。</font>
 
 ---
 * 0、NULL、Undefined
-![image](https://hackmd.io/_uploads/HkLuoQ6T6.png =400x300)
+<br>
+![image](https://img-blog.csdnimg.cn/f31229e244104712b1ccc11df00e07b7.jpeg)
 
 ---
 * None 值的 Type
+```
 A: NoneType，只有 None 會是這個 Type
+```
 
 ---
 
